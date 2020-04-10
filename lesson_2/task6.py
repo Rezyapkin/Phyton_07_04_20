@@ -11,14 +11,10 @@ list_goods =[(1, {'название': 'компьютер', 'цена': 20000, '
              ]
 '''
 
-good_code = 0
+good_code = 1
 
 while True:
-    print('Товаров в списке: ', len(list_goods))
-    need_add = input('Добавить товар в список? (Y/N)\n')
-    if need_add.upper() != "Y":
-        break
-    good_code += 1
+
     good_name = input(f'Введите название товара №{good_code}\n')
 
     while True:
@@ -49,6 +45,14 @@ while True:
 
     list_goods.append(new_tupple)
 
+    good_code += 1
+
+    print('Товаров в списке: ', len(list_goods))
+    need_add = input('Добавить еще один товар в список? (Y/N)\n')
+    if need_add.upper() != "Y":
+        break
+
+
 #Выведем получившися список с товарами
 print('-'*30)
 print(list_goods)
@@ -56,8 +60,7 @@ print('-'*30)
 
 statistics_dict = {}
 
-for good in list_goods:
-    tmp_tuple = good[1]
+for good_code, tmp_tuple in list_goods:
     for key in tmp_tuple:
         if not key in statistics_dict:
             #Если в итоговом словаре нет такого ключа, то создаем его и пишем список с одним элементом
