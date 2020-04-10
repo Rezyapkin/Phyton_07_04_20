@@ -1,4 +1,3 @@
-
 # Задание 5, урок 2
 
 my_list = [7, 5, 3, 3, 2]
@@ -12,18 +11,15 @@ while True:
 
 value = int(value)
 
-#Решение в лоб
-index = 0
-len_list = len(my_list)
-
-while index < len_list:
-    if value > my_list[index]:
+# Решение в лоб
+for index, element in enumerate(my_list, 0):
+    if value > element:
         my_list.insert(index, value)
         break
-    elif index == len_list-1:
+    elif index == len(my_list) - 1:
         my_list.append(value)
-    index += 1
+        break
 
 print('Итоговый список: ', my_list)
 
-#Для больших списков можно двоичную тихтомию использовать для ускорения
+# Для больших списков можно двоичную тихтомию использовать для ускорения
