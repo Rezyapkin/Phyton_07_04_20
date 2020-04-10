@@ -13,7 +13,7 @@ profit = revenue - expenses
 
 if profit > 0:
     print(f'Фирма сработала в прибыль {profit:.2f}')
-    profitability = profit / revenue*100
+    profitability = profit / revenue * 100
     print(f'Рентабельность составила {profitability:.2f} %\n')
     count_personal = input('Введите количество сотрудников предприятия')
     count_personal = int(count_personal)

@@ -6,7 +6,7 @@ while True:
     if number.isdigit():
         temp_number = int(number)
         max_digi = 0
-        while temp_number > 0:
+        while temp_number:
             tmp = temp_number % 10
             max_digi = max(max_digi, tmp)
             if max_digi == 9:

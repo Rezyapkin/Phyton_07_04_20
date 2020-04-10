@@ -12,7 +12,7 @@ day = 1
 
 while current_km < b:
     print(f"{day}'й день: {current_km:.2f}")
-    current_km = current_km * 1.1
+    current_km *= 1.1
     day += 1
 else:
     print(f"{day}'й день: {current_km:.2f}")
