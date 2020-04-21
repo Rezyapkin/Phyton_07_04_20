@@ -4,8 +4,8 @@
 '''
 
 file_name = 'text.txt'
-with open(file_name,'wt',encoding='UTF-8') as file:
+with open(file_name, 'wt', encoding='UTF-8') as file:
     my_str = '-'
     while my_str:
         my_str = input()
-        file.write(my_str+'\n')
+        file.write(my_str + '\n')
