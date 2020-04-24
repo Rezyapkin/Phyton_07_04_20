@@ -42,4 +42,3 @@ my_light.running('зеленый')
 my_light.running('бурый')
 my_light.running('красный')
 my_light.running('зеленый')
-
