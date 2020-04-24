@@ -3,9 +3,9 @@
 Программа должна подсчитывать сумму чисел в файле и выводить ее на экран.
 '''
 
-import random
+import random, os
 
-file_name = 'task_5.txt'
+file_name = os.path.join(os.path.dirname(__file__), 'task_5.txt')
 
 values = [random.randint(0, 1000) for _ in range(random.randint(1, 100))]
 print(f'Сумма элементов списка: {sum(values)}')
@@ -17,5 +17,5 @@ with open(file_name, 'wt', encoding='UTF-8') as file:
 
 with open(file_name, 'rt', encoding='UTF-8') as file:
     my_str = file.read()
-    read_values_sum = sum(map(lambda in_str: int(in_str), my_str.split()))
+    read_values_sum = sum(map(int, my_str.split()))
     print(f'Сумма, прочитанная из файла: {read_values_sum}')

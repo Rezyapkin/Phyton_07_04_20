@@ -9,8 +9,10 @@ Four — 4
 Новый блок строк должен записываться в новый текстовый файл.
 '''
 
-input_file_name = 'task_4_in.txt'
-output_file_name = 'task_4_out.txt'
+import os
+
+input_file_name = os.path.join(os.path.dirname(__file__), 'task_4_in.txt')
+output_file_name = os.path.join(os.path.dirname(__file__), 'task_4_out.txt')
 
 en_dictionary = {'One': 'Один',
                  'Two': 'Два',

@@ -13,6 +13,8 @@
 {“Информатика”: 170, “Физика”: 40, “Физкультура”: 30}
 '''
 
+import os
+
 '''
 Функция подсчитаетывает количество занятий определенного типа
 Если они не найдены, функция возвращает 0
@@ -27,12 +29,12 @@ def calc_sum(my_str: str):
         if len(new_str[0]) < len(my_str):
             try:
                 return int(new_str[0])
-            except:
+            except ValueError:
                 return 0
     return 0
 
 
-file_name = 'task_6.txt'
+file_name = os.path.join(os.path.dirname(__file__), 'task_6.txt')
 my_dict = {}
 
 with open(file_name, 'rt', encoding='UTF-8') as file:

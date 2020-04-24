@@ -4,7 +4,9 @@
 выполнить подсчет количества строк, количества слов в каждой строке.
 '''
 
-file_name = "my_text.txt"
+import os
+
+file_name = os.path.join(os.path.dirname(__file__), 'my_text.txt')
 
 with open(file_name, 'rt', encoding='UTF-8') as file:
     count = 0

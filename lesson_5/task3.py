@@ -5,7 +5,10 @@
 '''
 
 # В файле фамилии и з/п специально введены с лишними пробелами
-file_name = 'file_task3.txt'
+
+import os
+
+file_name = os.path.join(os.path.dirname(__file__), 'file_task3.txt')
 
 with open(file_name, 'rt', encoding='UTF-8') as file:
     lines = file.readlines()

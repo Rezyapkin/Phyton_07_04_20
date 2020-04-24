@@ -14,10 +14,10 @@
 Подсказка: использовать менеджеры контекста.
 '''
 
-import json
+import json, os
 
-input_file_name = 'task_7.txt'
-out_file_name = 'task_7.json'
+input_file_name = os.path.join(os.path.dirname(__file__), 'task_7.txt')
+out_file_name = os.path.join(os.path.dirname(__file__), 'task_7.json')
 firms_dict = {}
 profits = []
 
