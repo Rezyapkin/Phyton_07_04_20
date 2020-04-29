@@ -31,7 +31,7 @@ class Matrix:
 
     @property
     def shape(self):
-        return len(self.matrix), max(map(len, self.matrix))
+        return len(self.matrix), len(self.matrix[0])
 
 
     def __add__(self, other):
