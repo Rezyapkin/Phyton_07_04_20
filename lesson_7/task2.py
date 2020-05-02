@@ -10,6 +10,8 @@
 реализовать абстрактные классы для основных классов проекта, проверить на практике работу декоратора @property.
 '''
 
+from abc import ABC, abstractclassmethod
+
 
 class Clothes:
     expenditure = 0
@@ -18,11 +20,18 @@ class Clothes:
         self.name = name
 
 
+    @property
+    @abstractclassmethod
+    def expenditure(self) -> float:
+        pass
+
+
 class Coat(Clothes):
     def __init__(self, size: float):
         super().__init__("Пальто")
         self.size = size
         Clothes.expenditure += self.expenditure
+
 
     @property
     def expenditure(self):
@@ -34,6 +43,7 @@ class Suit(Clothes):
         super().__init__("Костюм")
         self.heigth = height
         Clothes.expenditure += self.expenditure
+
 
     @property
     def expenditure(self):
