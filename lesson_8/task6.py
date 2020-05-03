@@ -1,12 +1,14 @@
 '''
-Задание 5. Урок 8.
-Продолжить работу над первым заданием. Разработать методы, отвечающие за приём оргтехники на склад
-и передачу в определенное подразделение компании. Для хранения данных о наименовании и количестве единиц оргтехники,
-а также других данных, можно использовать любую подходящую структуру, например словарь.
+Задание 6. Урок 8.
+Продолжить работу над вторым заданием. Реализуйте механизм валидации вводимых пользователем данных.
+Например, для указания количества принтеров, отправленных на склад, нельзя использовать строковый тип данных.
+Подсказка: постарайтесь по возможности реализовать в проекте «Склад оргтехники» максимум возможностей,
+изученных на уроках по ООП.
+
 '''
 #Я специально "нагородил" хранение остатка товаров по Code, чтобы использовать classmethod для получения товара по Code
 
-import datetime
+import datetime, time
 
 
 printing_technology = ('лазерная', 'струйная', 'матричная')
@@ -64,6 +66,12 @@ class Warehouse:
         :param quantity: количество штук
         :return: None
         """
+        # Это для 6-ого задания нагородил)))
+        if str(quantity).isdigit():
+            quantity = int(quantity)
+        else:
+            raise ValueError('Quantity - целое число')
+
         if quantity > 0:
             if not product.code in self.__stock.keys():
                 self.__stock[product.code] = 0
@@ -73,7 +81,6 @@ class Warehouse:
             new_operation['product'] = product
             new_operation['quantity'] = quantity
             self.__arrival.append(new_operation)
-
         else:
             raise ValueError('Количество принимаемого товара должно быть больше 0')
 
@@ -98,7 +105,14 @@ class Warehouse:
         :param reciever: куда перемещаем
         :return:
         """
+        # Это для 6-ого задания нагородил)))
+        if str(quantity).isdigit():
+            quantity = int(quantity)
+        else:
+            raise ValueError('Quantity - целое число')
+
         current_stock = self.get_product_stock(product)
+
         if quantity <= 0:
             raise ValueError('Количество передаваемого товара должно быть больше 0')
         elif quantity > current_stock:
@@ -183,11 +197,37 @@ print(my_scaner.__dict__)
 my_warehouse = Warehouse('Москва, ул. Скаладская', 78, 10)
 my_warehouse.receipt(my_xerox, 2)
 my_warehouse.receipt(my_printer, 5)
+time.sleep(1)
 my_warehouse.receipt(my_scaner, 3)
+time.sleep(2)
 my_warehouse.receipt(my_xerox, 7)
 
 print(my_warehouse.get_product_stock(my_printer))
-print(my_warehouse.get_stock())
 
-my_warehouse.movement_product(my_xerox, 9, 'брак')
-print(my_warehouse.get_stock())
+print('Остатки на складе до отгрузки:')
+stock = my_warehouse.get_stock()
+for itm in stock:
+    print("\t".join(map(str, itm.values())))
+print('-' * 100)
+
+time.sleep(1)
+my_warehouse.movement_product(my_xerox, 9, 'Брак')
+
+print('Остатки на складе после отгрузки:')
+stock = my_warehouse.get_stock()
+for itm in stock:
+    print("\t".join(map(str, itm.values())))
+print('-' * 100)
+
+
+print('Приходные операции:')
+arrival = my_warehouse.get_arrival()
+for itm in arrival:
+    print("\t".join(map(str, itm.values())))
+print('-' * 100)
+
+print('Расходные операции:')
+shipment = my_warehouse.get_shipment()
+for itm in shipment:
+    print("\t".join(map(str, itm.values())))
+print('-' * 100)

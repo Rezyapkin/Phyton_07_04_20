@@ -84,7 +84,7 @@ class Xerox(Printer, Scaner):
         :param scan_resolution: разрешение сканера в dpi
         """
         super().__init__(name, paper_size, print_technology, brand, warranty)
-        #Scaner.__init__(self, paper_size, brand, warranty, scan_resolution)
+        Scaner.__init__(self, name, paper_size, brand, warranty, scan_resolution)
         self.type = "копировальное устройство"
 
 
