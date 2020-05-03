@@ -6,7 +6,6 @@
 уникальные для каждого типа оргтехники.
 '''
 
-from abc import ABC, abstractmethod
 
 printing_technology = ('лазерная', 'струйная', 'матричная')
 paper_sizes = ('А4', 'А3', 'А2', 'А1', 'А0')
